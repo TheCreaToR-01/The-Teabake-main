@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tea Bake — Artisan Bakery, New Delhi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./main/style.css">
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- SCRIM + DRAWER -->
+  <div class="scrim" id="scrim" onclick="closeDrawer()"></div>
+  <nav class="drawer" id="drawer">
+    <a href="#home" onclick="closeDrawer()">Home</a>
+    <a href="#menu" onclick="closeDrawer()">Menu</a>
+    <a href="#about" onclick="closeDrawer()">Our Story</a>
+    <a href="#testimonials" onclick="closeDrawer()">Reviews</a>
+    <a href="#order" onclick="closeDrawer()">Order</a>
+    <a href="#" class="drawer-wa" onclick="closeDrawer();openWA('The Tea Bake — Full Menu')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+      </svg>
+      Order on WhatsApp
+    </a>
+  </nav>
+
+  <!-- DESKTOP NAV -->
+  <nav id="navbar">
+    <a class="nav-logo" href="#home"><span style="font-size: 12px;"><img style="width: 90px; height: 90px;" src="main/assets/tea-bake-logo.png" alt="Fresh baked goods"></a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#order">Order</a></li>
+      <li><a href="#" class="nav-order" onclick="openWA('The Tea Bake')">Order Now</a></li>
+    </ul>
+    <button class="ham" id="ham" onclick="toggleDrawer()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero" id="home">
+    <div class="hero-pat">
+      <svg width="100%" height="100%" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="gp" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M60 0L0 0 0 60" fill="none" stroke="white" stroke-width=".5" />
+          </pattern>
+        </defs>
+        <rect width="800" height="800" fill="url(#gp)" />
+      </svg>
+    </div>
+    <div class="hero-left">
+      <p class="hero-eyebrow">Artisan Bakery · New Delhi</p>
+      <h1 class="hero-h1">Baked<br>with <em>heart,</em><br>brewed<br>with <em>love.</em></h1>
+      <p class="hero-sub">Handcrafted breads, viennoiseries &amp; cakes made fresh daily — the warmth of a home kitchen,
+        the
+        craft of a real bakery.</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn-primary">Explore Menu</a>
+        <a href="#" class="btn-secondary" onclick="openWA('The Tea Bake — Full Menu')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Order on WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-vis">
+        <div class="hero-frame">
+          <img src="main/assets/hero-banner-image.jpg" alt="Fresh baked goods"
+            onerror="this.style.display='none'">
+          <div class="hero-frame-grad"></div>
+          <div class="hero-quote">"Because the secret ingredient is always love"</div>
+        </div>
+        <div class="hero-badge"><b>100%</b><small>Fresh Baked</small></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>Scroll
+    </div>
+  </section>
+
+  <!-- ══ MARQUEE ══ -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="mitem">Sourdough</span><span class="mdot">✦</span>
+      <span class="mitem">Signature Cakes</span><span class="mdot">✦</span>
+      <span class="mitem">Croissants</span><span class="mdot">✦</span>
+      <span class="mitem">Focaccia Puglia</span><span class="mdot">✦</span>
+      <span class="mitem">Tiramisu</span><span class="mdot">✦</span>
+      <span class="mitem">Brioche</span><span class="mdot">✦</span>
+      <span class="mitem">Ciabatta</span><span class="mdot">✦</span>
+      <span class="mitem">Japanese Shokupan</span><span class="mdot">✦</span>
+      <span class="mitem">Maritozzo</span><span class="mdot">✦</span>
+      <span class="mitem">Tres Leches</span><span class="mdot">✦</span>
+      <span class="mitem">Pain au Chocolat</span><span class="mdot">✦</span>
+      <span class="mitem">Japanese Shokupan</span><span class="mdot">✦</span>
+      <span class="mitem">Sourdough</span><span class="mdot">✦</span>
+      <span class="mitem">Signature Cakes</span><span class="mdot">✦</span>
+      <span class="mitem">Croissants</span><span class="mdot">✦</span>
+      <span class="mitem">Focaccia Puglia</span><span class="mdot">✦</span>
+      <span class="mitem">Tiramisu</span><span class="mdot">✦</span>
+      <span class="mitem">Ciabatta</span><span class="mdot">✦</span>
+      <span class="mitem">Maritozzo</span><span class="mdot">✦</span>
+      <span class="mitem">Tres Leches</span><span class="mdot">✦</span>
+      <span class="mitem">Pain au Chocolat</span><span class="mdot">✦</span>
+      <span class="mitem">Lamington Cake</span><span class="mdot">✦</span>
+    </div>
+  </div>
+
+  <!-- ══ PRODUCTS ══ -->
+  <section class="sec-pad" id="menu">
+    <span class="sec-label r">Our Full Menu</span>
+    <h2 class="sec-title r">Quality <em>ingredients,</em><br>honest <em>creations.</em></h2>
+    <div class="cat-wrap r">
+      <div class="cat-filters">
+        <!-- <button class="cat-btn active" onclick="filterCat('all',this)">All</button> -->
+        <button class="cat-btn active" onclick="filterCat('tea-cakes',this)">Tea Cakes</button>
+        <button class="cat-btn" onclick="filterCat('sourdough',this)">Sourdough</button>
+        <button class="cat-btn" onclick="filterCat('italian-breads',this)">Italian Breads</button>
+        <button class="cat-btn" onclick="filterCat('specialty-breads',this)">Specialty Breads</button>
+        <button class="cat-btn" onclick="filterCat('viennoiserie',this)">Viennoiserie</button>
+        <button class="cat-btn" onclick="filterCat('tarts-mousse',this)">Tarts &amp; Mousse</button>
+        <button class="cat-btn" onclick="filterCat('signature-cakes',this)">Signature Cakes</button>
+      </div>
+    </div>
+    <div class="pgrid" id="pgrid"></div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section class="about-wrap" id="about">
+
+    <div class="about-intro">
+      <div>
+        <span class="about-eyebrow r">Our Story</span>
+        <h2 class="about-h2 r">Balanced,<br><em>Refined</em> bakes.<br>Made with <em>love.</em></h2>
+      </div>
+      <p class="about-lead r">
+        The Tea Bake was born in 2020 — not from a business plan, but from
+        <strong>a return to something deeply personal.</strong>
+        Nearly two decades in aviation and hospitality taught Rashmi Jain that excellence is rarely loud. It lives in
+        consistency, in care, in quiet dedication.
+        <br><br>Baking was always her quiet ritual. It became her life's work.
+      </p>
+    </div>
+
+    <div class="creds-strip r">
+      <div class="cred"><span class="cred-icon">🇫🇷</span>
+        <div><span class="cred-lbl">French Pastry Arts</span><span class="cred-val">Ecole ducasse (ENSP), France</span></div>
+      </div>
+      <div class="cred"><span class="cred-icon">🇮🇹</span>
+        <div><span class="cred-lbl">Italian Pastry Arts</span><span class="cred-val">ALMA, Italy</span></div>
+      </div>
+      <div class="cred"><span class="cred-icon">🌱</span>
+        <div><span class="cred-lbl">Certified Vegan Chef</span><span class="cred-val">The Vegan School, Goa</span></div>
+      </div>
+      <div class="cred"><span class="cred-icon">🏨</span>
+        <div><span class="cred-lbl">Experience</span><span class="cred-val">The Oberoi, New Delhi</span></div>
+      </div>
+      <div class="cred"><span class="cred-icon">📅</span>
+        <div><span class="cred-lbl">Founded</span><span class="cred-val">2020, Home Kitchen</span></div>
+      </div>
+    </div>
+
+    <div class="about-story">
+      <div class="story-l">
+        <span class="story-lbl">The Beginning</span>
+        <p class="story-p r">Rashmi's love for baking began long before her career did. As a child, she was fascinated by home-baked cakes. She would often request her aunts to bake one for her because nothing tasted like a cake made at home — warmer, richer, and more soulful than anything she ate outside. That warmth stayed with her.</p>
+        <p class="story-p r">There were times they wouldn’t bake it. And that's when something shifted — she decided she would learn herself. From that point, baking became her quiet ritual.</p>
+        <p class="story-p r">In 2020, in the quiet of her home kitchen, The Tea Bake was born. Her journey then took her to ENSP in France and ALMA in Italy for (classical remove) french and Italian pastry training, before returning to contribute to innovative eggless and vegan offerings at The Oberoi, New Delhi.</p>
+        <div class="story-pull r">"Simplicity, she learned, requires mastery."</div>
+      </div>
+      <div class="story-r">
+        <div>
+          <span class="story-lbl">The Philosophy</span>
+          <p class="story-p r">At The Tea Bake, the approach is clear: no complicated flavours, no unnecessary drama, no
+            chasing viral trends.</p>
+          <p class="story-p r">Just clean ingredients. Honest creations. Balanced, refined bakes that speak for
+            themselves. Food that comforts before it impresses — flavours familiar yet elevated. Trust earned through
+            consistency, not noise.</p>
+          <p class="story-p r">Focused on thoughtful tea cakes, artisanal breads, viennoiserie, and signature creations
+            — mostly vegan and eggless — crafted with love and care.</p>
+        </div>
+        <div>
+          <span class="story-lbl">The Vision</span>
+          <p class="story-p r">As The Tea Bake transitions from home kitchen to commercial space, the vision is not loud
+            growth — but quiet excellence. To build something enduring. To create food that feels personal.</p>
+          <p class="vision-p r">Because for Rashmi, baking was never about following trends. It was about recreating
+            that feeling of home — and sharing it with others.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="philo-strip">
+      <div class="philo">
+        <p class="philo-n">01</p>
+        <p class="philo-t">No complicated flavours. No unnecessary drama.</p>
+      </div>
+      <div class="philo">
+        <p class="philo-n">02</p>
+        <p class="philo-t">Clean ingredients. Honest, balanced creations.</p>
+      </div>
+      <div class="philo">
+        <p class="philo-n">03</p>
+        <p class="philo-t">Mostly vegan &amp; eggless. Crafted with love.</p>
+      </div>
+      <div class="philo">
+        <p class="philo-n">04</p>
+        <p class="philo-t">Trust earned through consistency, not noise.</p>
+      </div>
+      <div class="philo">
+        <p class="philo-n">05</p>
+        <p class="philo-t">Food that comforts before it impresses.</p>
+      </div>
+    </div>
+
+    <div class="founder-note">
+      <div class="founder-col">
+        <div style="position:relative;flex-shrink:0">
+          <div class="founder-pic">
+            <img src="main/assets/chef-rashmi-jain.jpg" alt="Rashmi Jain"
+              onerror="this.style.display='none'">
+          </div>
+          <div class="founder-shadow"></div>
+        </div>
+        <div>
+          <div class="founder-sig">Rashmi</div>
+          <div class="founder-role-txt">Chef &amp; Founder</div>
+        </div>
+      </div>
+      <div class="note-col">
+        <span class="note-lbl">A Note from the Founder</span>
+        <p class="note-p r">I grew up believing that the best cakes came from home kitchens — made by hands that cared,
+          with warmth that no patisserie could replicate. <em>That belief shaped everything I've built here.</em></p>
+        <p class="note-p r">My years in aviation and hospitality taught me excellence lives in precision and quiet
+          dedication. My training in France and Italy confirmed that <em>simplicity, done right, is the highest form of
+            craft.</em></p>
+        <p class="note-p r">At The Tea Bake, I don't bake to impress. I bake to comfort. Every loaf, every tart, every
+          cake is made as I would make it for someone I love — with the finest ingredients, honest technique, and <em>a
+            whole lot of heart.</em></p>
+        <span class="note-sign r">— With love, Rashmi</span>
+      </div>
+    </div>
+
+    <div class="contact-strip">
+      <div class="ctc"><span class="ctc-icon">📞</span>
+        <div><span class="ctc-lbl">Phone</span><span class="ctc-val"><a href="tel:+917290892771">+91 72908
+              92771</a></span></div>
+      </div>
+      <div class="ctc"><span class="ctc-icon">✉️</span>
+        <div><span class="ctc-lbl">Email</span><span class="ctc-val"><a
+              href="mailto:theteabake.rj@gmail.com">theteabake.rj@gmail.com</a></span></div>
+      </div>
+      <div class="ctc"><span class="ctc-icon">🌐</span>
+        <div><span class="ctc-lbl">Website</span><span class="ctc-val"><a href="http://theteabake.com"
+              target="_blank">theteabake.com</a></span></div>
+      </div>
+      <div class="ctc"><span class="ctc-icon">📍</span>
+        <div><span class="ctc-lbl">Location</span><span class="ctc-val">47/B-2 Malviya Nagar, New Delhi – 110017</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ TESTIMONIALS ══ -->
+  <section class="testi-sec" id="testimonials">
+    <div class="testi-head">
+      <span class="sec-label r">What People Say</span>
+      <h2 class="sec-title r">Baked with love,<br>received with <em>joy.</em></h2>
+    </div>
+    <div class="reviews-wrap">
+      <div class="reviews-track" id="reviewsTrack"></div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-sec" id="faq">
+    <div class="faq-inner">
+      <div class="faq-sticky">
+        <span class="faq-lbl">Have Questions?</span>
+        <h2 class="faq-title">Frequently<br><em>Asked.</em></h2>
+        <p class="faq-sub">Everything you need to know about ordering, freshness, and what makes us different.</p>
+      </div>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- ══ SOCIAL & GOOGLE ══ -->
+  <section class="social-sec" id="socials">
+    <div class="social-inner">
+      <div class="social-left">
+        <span class="sec-label r">Stay Connected</span>
+        <h2 class="sec-title r">Follow the<br><em>journey.</em></h2>
+        <p class="social-sub r">Watch the magic happen in real time — from sourdough scoring to fresh cake pulls. Every
+          bake, every morning.</p>
+        <div class="social-links r">
+          <a href="https://www.instagram.com/the_tea_bake" target="_blank" rel="noopener" class="social-link instagram">
+            <span class="social-link-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none" />
+              </svg>
+            </span>
+            <span class="social-link-body">
+              <span class="social-link-handle">@the_tea_bake</span>
+              <span class="social-link-label">Follow on Instagram</span>
+            </span>
+            <span class="social-link-arrow">↗</span>
+          </a>
+          <a href="https://share.google/c6xZrRx1j0dxmvRVh" target="_blank" rel="noopener" class="social-link google">
+            <span class="social-link-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  fill="#FBBC05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#EA4335" />
+              </svg>
+            </span>
+            <span class="social-link-body">
+              <span class="social-link-handle">The Tea Bake</span>
+              <span class="social-link-label">View on Google Maps</span>
+            </span>
+            <span class="social-link-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="social-right r">
+        <div class="google-rating-card">
+          <div class="grc-top">
+            <div class="grc-logo">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285F4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  fill="#FBBC05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#EA4335" />
+              </svg>
+              <span class="grc-google-text">Google</span>
+            </div>
+            <div class="grc-score">
+              <span class="grc-num">5.0</span>
+              <span class="grc-stars">★★★★★</span>
+            </div>
+          </div>
+          <p class="grc-tag">"Exceptional bakery. Every visit is a treat."</p>
+          <a href="https://share.google/c6xZrRx1j0dxmvRVh" target="_blank" rel="noopener" class="grc-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                fill="#4285F4" />
+              <path
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                fill="#34A853" />
+              <path
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                fill="#FBBC05" />
+              <path
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                fill="#EA4335" />
+            </svg>
+            Leave a Review on Google
+          </a>
+          <p class="grc-note">Your review helps other bake-lovers find us ♥</p>
+        </div>
+        <div class="google-reviews-mini" id="googleReviewsMini"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ORDER ══ -->
+  <section class="order-sec" id="order">
+    <div>
+      <span class="order-lbl">Order Fresh</span>
+      <h2 class="order-h2">Delivered <em>fresh.</em></h2>
+      <p class="order-sub">Place your order directly on WhatsApp. We bake fresh every morning — pre-order by 6 PM for
+        next-day pickup, or same-day at Malviya Nagar.</p>
+      <div class="order-feats">
+        <div class="ofeat">
+          <div class="ofeat-dot"></div>Pre-order by 6 PM for next morning pickup
+        </div>
+        <div class="ofeat">
+          <div class="ofeat-dot"></div>Same-day pickup available at Malviya Nagar
+        </div>
+        <div class="ofeat">
+          <div class="ofeat-dot"></div>Custom cakes &amp; gifting boxes on request
+        </div>
+        <div class="ofeat">
+          <div class="ofeat-dot"></div>Bulk, B2B, Catering &amp; Corporate orders welcome
+        </div>
+      </div>
+      <a href="#" onclick="openWA('The Tea Bake — I\'d like to place an order')" class="wa-big">
+        <svg viewBox="0 0 24 24" fill="white">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+    <div class="order-card">
+      <p class="ocard-title">Order Details</p>
+      <div class="orow"><span class="okey">Phone</span><span class="oval">+91 72908 92771</span></div>
+      <div class="orow"><span class="okey">Hours</span><span class="oval">Mon – Sat, 8 am – 8 pm</span></div>
+      <div class="orow"><span class="okey">Pickup</span><span class="oval">Malviya Nagar, Delhi</span></div>
+      <div class="orow"><span class="okey">Delivery</span><span class="oval">On request</span></div>
+      <div class="orow"><span class="okey">Pre-order</span><span class="oval">By 6 PM previous day</span></div>
+      <div class="orow"><span class="okey">Custom Cakes</span><span class="oval">2–3 days advance</span></div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">the tea bake</div>
+        <p class="foot-tag">Handcrafted with thoughtful ingredients and a whole lot of love. Every bite matters.</p>
+      </div>
+      <div>
+        <span class="fc-title">Menu</span>
+        <ul class="foot-links">
+          <li><a href="#menu" onclick="filterCat('tea-cakes')">Tea Cakes</a></li>
+          <li><a href="#menu" onclick="filterCat('sourdough')">Sourdough</a></li>
+          <li><a href="#menu" onclick="filterCat('viennoiserie')">Viennoiserie</a></li>
+          <li><a href="#menu" onclick="filterCat('signature-cakes')">Signature Cakes</a></li>
+          <li><a href="#menu" onclick="filterCat('tarts-mousse')">Tarts &amp; Mousse</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="fc-title">Contact</span>
+        <div class="foot-ci"><a href="tel:+917290892771">+91 72908 92771</a></div>
+        <div class="foot-ci"><a href="mailto:theteabake.rj@gmail.com">theteabake.rj@gmail.com</a></div>
+        <div class="foot-ci"><a href="http://theteabake.com" target="_blank">theteabake.com</a></div>
+        <div class="foot-ci">47/B-2 Malviya Nagar, New Delhi – 110017</div>
+      </div>
+      <div class="foot-fssai">
+    <div class="fssai-badge">
+      <div class="fssai-logo-wrap">
+        <span class="fssai-name">FSSAI</span>
+        <span class="fssai-tagline">Food Safety &amp; Standards Authority of India</span>
+      </div>
+      <div class="fssai-lic">
+        <span class="fssai-lic-label">Lic. No.</span>
+        <span class="fssai-lic-num">11224999000451</span>
+      </div>
+    </div>
+  </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="copy">© 2026 The Tea Bake · Rashmi Jain, Chef &amp; Founder</span>
+      <span class="copy">Made with ♥ in New Delhi</span>
+    </div>
+  </footer>
+
+  <!-- ══ MODAL ══ -->
+  <div class="modal-overlay" id="modalOverlay" onclick="handleModalClick(event)">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-grid">
+        <div class="modal-img-side" id="modalImgSide">
+          <div class="modal-ph" id="modalPh"><span class="modal-ph-emoji" id="modalEmoji">🍰</span><span
+              class="modal-ph-label">The Tea Bake</span></div>
+          <img id="modalImg" src="" alt="" style="display:none">
+        </div>
+        <div class="modal-body">
+          <div>
+            <p class="modal-cat" id="modalCat"></p>
+            <h2 class="modal-name" id="modalName"></h2>
+            <p class="modal-desc" id="modalDesc"></p>
+            <div class="modal-prices" id="modalPrices"></div>
+          </div>
+          <div>
+            <a href="#" id="modalWA" class="modal-wa" target="_blank">
+              <svg viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Order on WhatsApp
+            </a>
+            <p class="modal-note">Chat directly with Rashmi · Fresh-baked every day with love</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./main/script.js"></script>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
